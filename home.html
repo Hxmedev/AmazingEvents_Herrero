@@ -18,30 +18,26 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <img src="assets/Logo Amazing Events.png" style="height: 3rem;width: 12rem;" alt="">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" id="navButton" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                  </button>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav gap-2 mx-2">
-                    <li class="nav-item active">
-                        <a class="btn btn-outline-dark" href="#">Home</a>
+                <ul class="navbar-nav gap-2 py-2 py-lg-auto mx-lg-2">
+                    <li class="nav-item active ">
+                        <a class="btn btn-outline-dark w-100 w-lg-auto" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark" href="#">Upcoming</a>
+                        <a class="btn btn-outline-dark w-100 w-lg-auto" href="pages/events.html">Upcoming</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark" href="#">Past</a>
+                        <a class="btn btn-outline-dark w-100 w-lg-auto" href="pages/pastEvents.html">Past</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark" href="#">Stats</a>
+                        <a class="btn btn-outline-dark w-100 w-lg-auto" href="pages/stats.html">Stats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark" href="#">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-dark" href="#">Contact</a>
+                        <a class="btn btn-outline-dark w-100 w-lg-auto" href="pages/contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -58,6 +54,12 @@
                 </div>
                 <div class="carousel-item">
                     <h1 class="display-4 text-light text-center">Past Events</h1>
+                </div>
+                <div class="carousel-item">
+                    <h1 class="display-4 text-light text-center">Stats</h1>
+                </div>
+                <div class="carousel-item">
+                    <h1 class="display-4 text-light text-center">Contact</h1>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -110,60 +112,85 @@
                 </span>
             </div>
         </div>
-        <div class="container-fluid d-flex flex-wrap gap-5 justify-content-center align-items-center">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="container-fluid d-flex flex-wrap gap-5 justify-content-center align-items-center mb-3 mb-lg-0"
+            style="min-height: 100vh;">
+            <div class="card" style="width: 18rem;  height: 24rem">
+                <img class="card-img-top h-50 cover" src="assets/Cinema.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                        <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <p class="align-self-center mt-auto mb-auto">Price: $1000</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            </div>
+            <div class="card" style="width: 18rem;  height: 24rem">
+                <img class="card-img-top h-50 cover" src="assets/Costume_Party.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <p class="align-self-center mt-auto mb-auto">Price: $1000</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            </div>
+            <div class="card" style="width: 18rem;  height: 24rem">
+                <img class="card-img-top h-50 cover" src="assets/Food_Fair.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <p class="align-self-center mt-auto mb-auto">Price: $1000</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            </div>
+            <div class="card" style="width: 18rem;  height: 24rem">
+                <img class="card-img-top h-50 cover" src="assets/Marathon.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <p class="align-self-center mt-auto mb-auto">Price: $1000</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            </div>
+            <div class="card" style="width: 18rem; height: 24rem;">
+                <img class="card-img-top h-50 cover" src="assets/Museum_Tour.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <p class="align-self-center mt-auto mb-auto">Price: $1000</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            </div>
+            <div class="card" style="width: 18rem;  height: 24rem">
+                <img class="card-img-top h-50 cover" src="assets/Music_Concert.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <p class="align-self-center mt-auto mb-auto">Price: $1000</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
                 </div>
-              </div>
+            </div>
         </div>
     </main>
-    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+    <footer class="text-center text-dark" style="background-color: #f1f1f1;">
         <!-- Grid container -->
-        <div class="container pt-4 d-flex justify-content-between align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
             <!-- Section: Social media -->
             <div class="p-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -187,10 +214,7 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 </body>
 
 </html>
