@@ -1,3 +1,7 @@
+main{
+    background-image: url(../assets/background.jpg);
+    min-height: 100vh;
+}
 .carousel-item>img{
     max-height: 40vh !important;
     object-fit: cover;
