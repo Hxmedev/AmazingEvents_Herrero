@@ -1,10 +1,10 @@
 // Get the Events Info and store in variable
-const events = data.events
+const events = data.events;
 // we recover the container element
 let fragment = new DocumentFragment();
-const containerEvents = document.getElementById("eventsContainer")
+const containerEvents = document.getElementById("eventsContainer");
 // Filter All Events after 2021
-const eventsToShow = events.filter(e=> e.date.split("-")[0]>2021)
+const eventsToShow = events.filter((e) => e.date.split("-")[0] > 2021);
 
 // *******************Model****************************************************************************************************************************************
 // <div class="card" style="width: 18rem;  height: 24rem">
@@ -20,69 +20,117 @@ const eventsToShow = events.filter(e=> e.date.split("-")[0]>2021)
 //           </div>
 //***************************************************************************************************************************************************************** */
 
-eventsToShow.forEach(event => {
-    
-    // Create all Elements
-    const eventCard = document.createElement('div');
-    const img = document.createElement('img');
-    const cardBody = document.createElement('div')
-    const EventName = document.createElement('h5')
-    const EventDescription = document.createElement('p')
-    const date = document.createElement('h5')
-    const priceContainer = document.createElement('div')
-    const price = document.createElement('p')
-    const detailsButton = document.createElement('a')
-    
-    // Card Properties
-    eventCard.style = "width: 22rem;  height: 30rem"
-    eventCard.className = "card mb-3"
-    
-    // Img Properties
-    img.src = event.image;
-    img.className="card-img-top h-50 cover"
-    
-    // Card Body properties
-    cardBody.className ="card-body"
-    
-    // Title Properties
-    EventName.className="card-title"
-    EventName.textContent=event.name
-    
-    // Description properties
-    EventDescription.className ="card-text"
-    EventName.textContent=event.description
+eventsToShow.forEach((event) => {
+  // Create all Elements
+  const eventCard = document.createElement("div");
+  const img = document.createElement("img");
+  const cardBody = document.createElement("div");
+  const EventName = document.createElement("h5");
+  const EventDescription = document.createElement("p");
+  const date = document.createElement("h5");
+  const priceContainer = document.createElement("div");
+  const price = document.createElement("p");
+  const detailsButton = document.createElement("a");
 
-    // date Properties
-    date.className ='text-center pt-2'
-    date.textContent = `Date: ${event.date}`
-    
-    // Price Container properties
-    priceContainer.className ="container-fluid d-flex justify-content-between pt-3"
-    
-    // price properties
-    price.className="align-self-center mt-auto mb-auto"
-    price.textContent=`$${event.price}`
-    
-    // Button Details properties
-    detailsButton.className="btn btn-primary"
-    detailsButton.textContent="Details"
-    
-    // Atach sons of price Container
-    priceContainer.appendChild(price)
-    priceContainer.appendChild(detailsButton)
-    
-    // Atach sons of Card Body
-    cardBody.appendChild(EventName)
-    cardBody.appendChild(EventDescription)
-    cardBody.appendChild(date)
-    cardBody.appendChild(priceContainer)
-    
-    // Attach the image to the div we initially created
-    eventCard.appendChild(img);
-    eventCard.appendChild(cardBody);
-    
-    // Append card to fragment element
-    fragment.appendChild(eventCard);
+  // Card Properties
+  eventCard.style = "width: 22rem;  height: 30rem";
+  eventCard.className = "card mb-3";
+
+  // Img Properties
+  img.src = event.image;
+  img.className = "card-img-top h-50 cover";
+
+  // Card Body properties
+  cardBody.className = "card-body";
+
+  // Title Properties
+  EventName.className = "card-title";
+  EventName.textContent = event.name;
+
+  // Description properties
+  EventDescription.className = "card-text";
+  EventName.textContent = event.description;
+
+  // date Properties
+  date.className = "text-center pt-2";
+  date.textContent = `Date: ${event.date}`;
+
+  // Price Container properties
+  priceContainer.className =
+    "container-fluid d-flex justify-content-between pt-3";
+
+  // price properties
+  price.className = "align-self-center mt-auto mb-auto";
+  price.textContent = `$${event.price}`;
+
+  // Button Details properties
+  detailsButton.className = "btn btn-primary";
+  detailsButton.textContent = "Details";
+  detailsButton.href = "./details.html";
+  // Atach sons of price Container
+  priceContainer.appendChild(price);
+  priceContainer.appendChild(detailsButton);
+
+  // Atach sons of Card Body
+  cardBody.appendChild(EventName);
+  cardBody.appendChild(EventDescription);
+  cardBody.appendChild(date);
+  cardBody.appendChild(priceContainer);
+
+  // Attach the image to the div we initially created
+  eventCard.appendChild(img);
+  eventCard.appendChild(cardBody);
+
+  // Append card to fragment element
+  fragment.appendChild(eventCard);
 });
 // After iterating, we then insert fragment contents into the DOM
 containerEvents.appendChild(fragment);
+
+// Get Categories
+const categories = [events.map((e) => e.category)][0];
+// We Make a function to delete Repeat
+const deleteRepeatElements = (arr) => {
+  return arr.filter((item, index) => arr.indexOf(item) === index);
+};
+// Create a Categories fragment
+let catFragment = new DocumentFragment();
+const containerCategories = document.getElementById("categoriesContainer");
+
+//**************************Model***************************************************************************
+// <div class="form-check">
+//   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+//   <label class="form-check-label" for="flexCheckDefault">
+//       Dategory
+//   </label>
+// </div>
+//**************************Model***************************************************************************
+// Populate Categories
+deleteRepeatElements(categories).forEach((cat) => {
+  // Create all Elements
+  const formCheck = document.createElement("div");
+  const input = document.createElement("input");
+  const label = document.createElement("label");
+
+  // Form Check Properties
+  formCheck.className = "form-check";
+
+  // Input Properties
+  input.className = "form-check-input";
+  input.type = "checkbox";
+  input.id = "flexCheckDefault3";
+
+  // Label properties
+  label.className = "form-check-label";
+  label.for = "flexCheckDefault";
+  label.textContent = `${cat}`;
+
+  // Atach sons of Form Check
+  formCheck.appendChild(input);
+  formCheck.appendChild(label);
+
+  // Append card to fragment element
+  catFragment.appendChild(formCheck);
+});
+// After iterating, we then insert fragment contents into the DOM
+containerCategories.appendChild(catFragment);
