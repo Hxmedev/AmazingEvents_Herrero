@@ -170,5 +170,5 @@ const data = {
         "price":250
       }
     ],
-    "type": "module"
   }
+  export default data
