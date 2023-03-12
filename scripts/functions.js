@@ -6,8 +6,10 @@ export function eventsType(events,type,date){
     }
     return types[type] || events
 }
+
 export function showEvents(events,type){
     const containerEvents = document.getElementById("eventsContainer");
+    containerEvents.innerHTML= ""
     let fragment = new DocumentFragment();
     for(let event of events){
         let cardContainer = document.createElement('div');
