@@ -47,15 +47,17 @@ export function showCategories(cats){
     // Create a Categories fragment
     let catFragment = new DocumentFragment();
     const containerCategories = document.getElementById("categoriesContainer");
+    let counter = 1;
     for(let cat of cats){
         let formCheck = document.createElement("div");
         formCheck.classList = "form-check";
         formCheck.innerHTML=`
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-        <label class="form-check-label" for="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault${counter}">
+        <input class="form-check-input" type="checkbox" value=${cat} id="flexCheckDefault${counter}">
             ${cat}
         </label>`
         catFragment.appendChild(formCheck)
+        counter++
     }
     containerCategories.appendChild(catFragment)
 }

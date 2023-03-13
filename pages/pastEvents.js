@@ -1,6 +1,6 @@
 import data from '../data/data.js'
 import {showEvents,eventsType,getCategories,showCategories} from '../scripts/functions.js';
-import { search } from '../scripts/searchFunctions.js';
+import { search } from '../scripts/filterFunctions.js';
 // Populate Events
 const eventsToShow = eventsType(data.events,'past',data.currentDate)
 showEvents(eventsToShow,"past")
