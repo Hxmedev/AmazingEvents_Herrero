@@ -1,13 +1,13 @@
-export function search(events,input){
-    return events.filter(event => event.name.toLowerCase().includes(input.toLowerCase())||event.description.toLowerCase().includes(input.toLowerCase()));
+export function search(events){
+    const searchInput = document.querySelector("#search-input").value.toLowerCase()
+    return searchInput == '' ? events : events.filter(event => event.name.toLowerCase().includes(searchInput)||event.description.toLowerCase().includes(searchInput));
 }
 
-export function filterByCategories(events,cats,cat){
-    let auxCat = cat.split(" ")[0];
-    if(cats.indexOf(auxCat) == -1){
-        cats.push(auxCat)
-    }else{
-        cats.splice(cats.indexOf(auxCat),1)
-    }
-    return cats.length == 0 ? [...events] : [...events.filter(event => cats.indexOf(event.category.split(" ")[0]) !== -1)]
+export function filterByCategories(events){
+    let cats = [...document.querySelectorAll('input[type="checkbox"]:checked')]
+    return cats.length == 0 ? events : events.filter(event => cats.map(i=> i.value).includes(event.category.split(' ')[0]))
 }
+export function combinedFilter(events){
+    return filterByCategories(search(events))
+}
+
