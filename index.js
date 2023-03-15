@@ -17,8 +17,7 @@ searchInput.addEventListener("input",e=> showEvents(search(eventsToShow,e.target
 
 // Filters by Category
 
-const form = document.querySelectorAll("#categoriesContainer input[type=checkbox]")
+const form = document.querySelectorAll("#categoriesContainer")[0]
+console.log(form)
 let cats = []
-form.forEach(i=> {
-    i.addEventListener('change', e=> showEvents(filterByCategories(eventsToShow,cats,e.target.value)) );
-});
+form.addEventListener('change', e=> showEvents(filterByCategories(eventsToShow,cats,e.target.value)) );
