@@ -1,5 +1,10 @@
 import { combinedFilter } from "./filterFunctions.js";
 // ************************************************************************************Events************************************************************************************
+export async function getEvents(){
+    const data = await fetch("../data/amazing.json")
+    const events = data.json()
+    return events
+}
 export function eventsType(events,type,date){
     const types ={
         'past':events.filter(e=>e.date<date),
@@ -80,7 +85,7 @@ export function populateAll(eventsToShow){
     searchInput.addEventListener('input',e=> showEvents(combinedFilter(eventsToShow)))
 
     // Filters by Category
-    const form = document.querySelectorAll("#categoriesContainer")[0]
+    const form = document.querySelector("#categoriesContainer")
 
     form.addEventListener('change',e=>showEvents(combinedFilter(eventsToShow)));
 }

@@ -1,10 +1,9 @@
-import data from '../data/data.js'
+import { getEvents } from "../scripts/functions.js";
 const queryString = location.search;
 const params = new URLSearchParams(queryString);
 const eventId = params.get('id');
-const eventToShow = data.events.find(event=> event._id==eventId)
-console.log(eventToShow)
-
+const {events} = await getEvents()
+const eventToShow = events.find(event=> event._id==eventId)
 const eventDetails = document.querySelector('#eventDetails')
 const {image,category,name,description,price,capacity,assistance,place,date,estimate} = eventToShow
 eventDetails.innerHTML=`<div class="card mb-3 m-auto mt-5" style="min-width: 80vh;">

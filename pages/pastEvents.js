@@ -1,6 +1,6 @@
-import data from '../data/data.js'
-import {showEvents,eventsType,populateAll} from '../scripts/functions.js';
+import {showEvents,eventsType,populateAll,getEvents} from '../scripts/functions.js';
 // Populate Events
-const eventsToShow = eventsType(data.events,'past',data.currentDate)
+const {events,currentDate} = await getEvents()
+const eventsToShow = eventsType(events,'past',currentDate)
 showEvents(eventsToShow,'past')
 populateAll(eventsToShow)
