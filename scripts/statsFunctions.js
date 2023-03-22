@@ -1,3 +1,4 @@
+import { getCategories,eventsType } from "./functions.js";
 function eventsFilterType(events,type){
     const types ={
         'highest':events.slice().sort((a,b) => (b.assistance ||  b.estimate) - (a.assistance || a.estimate)),
@@ -65,6 +66,58 @@ export function allEvents(events){
                     </div>
                 </div>
                 </div>
+            </th>
+            `
+            statsFragment.appendChild(tr)
+    }
+            
+    statsContainer.appendChild(statsFragment)
+}
+function dictionary(events){
+    const dic = {}
+    const cats = getCategories(events)
+    for (let i = 0; i < cats.length; i++) {
+        dic[cats[i]] = 0;
+    }
+    return dic
+}
+export function revenueEvents(events){
+    const dic = dictionary(events)
+    for(let i of events){
+        dic[i.category] += (i.estimate * i.price) || (i.assistance * i.price)
+    }
+    console.log(dic)
+    return dic
+}
+export function attendanceEvents(events){
+    const dic = dictionary(events)
+    for(let i of events){
+        if(!dic[i.category]){
+            dic[i.category]+= (i.estimate*100)/i.capacity || (i.assistance*100)/i.capacity
+        }else{
+            dic[i.category]= (dic[i.category] + ((i.estimate*100)/i.capacity || (i.assistance*100)/i.capacity))/2
+        }
+    }
+    console.log(dic)
+    return dic
+}
+export function statsEventsType(events,type){
+    const statsFragment = new DocumentFragment();    
+    const statsContainer = type == 'upcoming' ? document.getElementById("upcomingEventsContainer"): document.getElementById("pastContainer")
+    const cats = getCategories(events)
+    const revenue = revenueEvents(events)
+    const attendance = attendanceEvents(events)
+    for(let i of cats){
+        const tr = document.createElement("tr");
+        tr.innerHTML=`
+            <th scope="row" colspan="2" style="height:30vh">
+                <h4 class="text-center">${i}</h4>
+            </th>
+            <th scope="row">
+                <h4 class="text-center">$ ${revenue[i]}</h4>
+            </th>
+            <th scope="row">
+                <h4 class="text-center">% ${attendance[i].toFixed(2)}</h4>
             </th>
             `
             statsFragment.appendChild(tr)

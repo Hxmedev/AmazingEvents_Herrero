@@ -1,7 +1,9 @@
-import { getEvents } from "../scripts/functions.js";
-import {allEvents} from "../scripts/statsFunctions.js";
-const {events} = await getEvents()
+import { getEvents,eventsType } from "../scripts/functions.js";
+import {allEvents,revenueEvents,attendanceEvents,statsEventsType} from "../scripts/statsFunctions.js";
+const {events,currentDate} = await getEvents()
 allEvents(events)
+statsEventsType(eventsType(events,'upcoming',currentDate),'upcoming')
+statsEventsType(eventsType(events,'past',currentDate),'past')
 // // we recover the container element
 // let pastFragment = new DocumentFragment();
 // let upcomingFragment = new DocumentFragment();
